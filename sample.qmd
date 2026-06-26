@@ -1,0 +1,160 @@
+---
+title: "Talk Title"
+subtitle: "Subtitle / Conference Name"
+author: "Your Name · Collaborators: A, B, C"
+format:
+  revealjs:
+    theme: simple
+    width: 1600
+    height: 900
+    slide-number: false
+    chalkboard: false
+    controls: false
+    margin: 0
+    fig-cap-location: bottom
+    transition: none
+    incremental: false
+    include-in-header:
+      text: |
+        <script src="talk-template.js"></script>
+execute:
+  echo: false
+  warning: false
+  message: false
+title-slide-attributes:
+  data-background-image: "background.svg"
+  data-background-size: cover
+  data-background-position: center
+---
+
+## Overview {data-section="Introduction"}
+
+::: incremental
+- **Section tabs** are highlighted automatically based on `data-section="..."`
+- The footer shows your name, date, and slide number
+- Edit `CFG` at the top of `talk-template.js` to customise everything
+:::
+
+::: {.fragment style="border: 2px solid #333; padding: 0.7em; border-radius: 8px;"}
+Sections defined in `talk-template.js`:  `Introduction` · `Methods` · `Results` · `Conclusion`
+:::
+
+## Two-column layout {data-section="Introduction"}
+
+::: {.columns}
+::: {.column width="55%"}
+
+Use `::: {.columns}` for side-by-side content.
+
+::: incremental
+- First point
+- Second point
+- Third point
+:::
+
+:::
+::: {.column width="45%"}
+
+Equations work out of the box:
+
+$$\frac{\partial \mathbf{B}}{\partial t} = \nabla \times (\mathbf{u} \times \mathbf{B})$$
+
+$$E(k) \propto k^{-5/3}$$
+
+:::
+:::
+
+## Slide with a figure {data-section="Methods"}
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots(figsize=(8, 4))
+k = np.logspace(0, 2, 200)
+ax.loglog(k, k**(-5/3), lw=2.5, label=r"$k^{-5/3}$ (Kolmogorov)")
+ax.loglog(k, 0.3 * k**(-2),  lw=2.5, ls="--", label=r"$k^{-2}$")
+ax.set_xlabel("Wavenumber $k$", fontsize=14)
+ax.set_ylabel("Energy $E(k)$", fontsize=14)
+ax.legend(fontsize=13)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+plt.tight_layout()
+```
+
+## Bare-background slide {background-image="background.svg" background-size="cover" data-section="Results"}
+
+<div style="
+  font-size: 1.1em;
+  background: rgba(255,255,255,0.85);
+  padding: 1em 1.5em;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 2em;
+">
+
+Slides with `background-image:` skip the folder wrapper — useful for full-bleed visuals or dramatic section breaks.
+
+</div>
+
+## Results {data-section="Results"}
+
+::: {.columns}
+::: {.column width="50%"}
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+rng = np.random.default_rng(42)
+x = np.linspace(0, 10, 300)
+y = np.sin(x) + 0.15 * rng.standard_normal(300)
+
+fig, ax = plt.subplots(figsize=(6, 4))
+ax.plot(x, y, lw=1.5, alpha=0.8)
+ax.plot(x, np.sin(x), lw=2, color="C1", label="truth")
+ax.legend(fontsize=12)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+plt.tight_layout()
+```
+
+:::
+::: {.column width="50%"}
+
+::: incremental
+- Key finding one
+- Key finding two
+:::
+
+::: {.fragment style="border: 2px solid black; padding: 0.8em; border-radius: 8px; margin-top: 1em;"}
+$\rightarrow$ **Main takeaway**
+:::
+
+:::
+:::
+
+## Conclusion {data-section="Conclusion"}
+
+::: {.columns}
+::: {.column width="60%"}
+
+::: incremental
+- Summary point one
+- Summary point two
+- Summary point three
+:::
+
+::: {.fragment style="text-align: center; margin-top: 2em;"}
+**Thank you!**
+
+Questions?
+:::
+
+:::
+::: {.column width="40%"}
+
+Replace with your paper QR code or key figure.
+
+:::
+:::
