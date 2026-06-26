@@ -2,7 +2,7 @@
 
 A clean Reveal.js talk template for [Quarto](https://quarto.org) with section tabs, a branded footer, and a consistent background — all driven by a single JS config file.
 
-**[Live demo →](https://lkasselm.github.io/qmd-presentation-template/sample.html)**
+**[Live demo →](https://lkasselm.github.io/quarto-presentation-template/sample.html)**
 
 ## What you get
 
